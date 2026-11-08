@@ -233,7 +233,11 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 30px}
 <div class="mod" id="mod"><div class="box" id="box"></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
+const SB_URL="https://fvyqulthcjkkuemcsidf.supabase.co",SB_KEY="sb_publishable_vMXw0c42Zrfiv6nINezZzw_cwnh07Bc";
+const sb=supabase.createClient(SB_URL,SB_KEY);
+let ME=null;
 const EX={cs:{n:'TRE 4.0 Computer Science',s:'TRE CS',e:'💻',g:'linear-gradient(135deg,#2575fc,#6a11cb)'},
 slet:{n:'Bihar SLET (Library Sci.)',s:'SLET',e:'📖',g:'linear-gradient(135deg,#0bab64,#3bb78f)'},
 history:{n:'इतिहास (BPSC)',s:'इतिहास',e:'🏛️',g:'linear-gradient(135deg,#d35400,#f39c12)'},
@@ -244,38 +248,44 @@ let DATA=[],BANK=[],cur=null,lang='both',libCat='all',libN=12,pracEx='cs';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
-/* ---------- accounts (saved in this browser) ---------- */
-const U=()=>JSON.parse(localStorage.getItem('bx_users')||'{}');
-const saveU=u=>localStorage.setItem('bx_users',JSON.stringify(u));
-const me=()=>{const id=localStorage.getItem('bx_me');return id?U()[id]:null};
-async function hash(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('bx4u:'+s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+/* ---------- accounts (Supabase: works on every device) ---------- */
+const me=()=>ME;
+const mail=u=>'ask4nitinnirala25+be4u_'+u+'@gmail.com';
+async function loadMe(){const {data:{session}}=await sb.auth.getSession();if(!session){ME=null;return}
+  const uid=session.user.id;const [{data:p},{data:a}]=await Promise.all([sb.from('profiles').select('*').eq('id',uid).maybeSingle(),sb.from('attempts').select('exam,topic,correct,total,created_at').eq('user_id',uid).order('created_at',{ascending:false}).limit(1000)]);
+  if(!p){ME=null;return}
+  const topic={};(a||[]).slice().reverse().forEach(x=>{const k=x.exam+'|'+x.topic,t=topic[k]||{n:0,c:0,best:0,tries:0};t.n+=x.total;t.c+=x.correct;t.best=Math.max(t.best,Math.round(100*x.correct/x.total));t.tries++;topic[k]=t});
+  ME={uid,id:p.username,name:p.name,exam:p.exam,wrong:p.wrong||[],days:p.days||[],topic,att:(a||[]).map(x=>({t:x.topic,e:x.exam,c:x.correct,n:x.total,d:x.created_at}))}}
 function authBox(mode='login',then){
   $('#box').innerHTML=`<button class="x" onclick="closeM()">✕</button>
   <h2 class="baloo" style="font-size:24px">${mode=='login'?'👋 Login करो':'✨ नया Account बनाओ'}</h2>
   <p style="color:var(--mut);font-size:14px;margin:4px 0 14px">${mode=='login'?'अपना username और password डालो':'Score, streak और progress सब आपकी profile में save होगा'}</p>
   ${mode=='signup'?'<input class="field" id="f-name" placeholder="पूरा नाम">':''}
   <input class="field" id="f-user" placeholder="Username (जैसे rahul2026)" autocapitalize="none">
-  <input class="field" id="f-pass" type="password" placeholder="Password (कम से कम 4 अक्षर)">
+  <input class="field" id="f-pass" type="password" placeholder="Password (कम से कम 6 अक्षर)">
   ${mode=='signup'?'<select class="field" id="f-exam"><option value="cs">मेरी तैयारी: TRE 4.0 Computer Science</option><option value="slet">Bihar SLET</option><option value="history">BPSC (GS)</option><option value="ca">Current Affairs</option></select>':''}
   <div class="err" id="f-err"></div>
   <button class="btn p" style="width:100%;justify-content:center" id="f-go">${mode=='login'?'Login':'Account बनाओ'}</button>
   <p style="text-align:center;margin-top:12px;font-size:14px">${mode=='login'?'नया हो? <a href="#" id="f-sw" style="color:var(--p1);font-weight:700">Account बनाओ</a>':'पहले से account है? <a href="#" id="f-sw" style="color:var(--p1);font-weight:700">Login</a>'}</p>
-  <p style="text-align:center;margin-top:8px;font-size:11.5px;color:var(--mut)">🔒 Account और score इसी phone/browser में सुरक्षित रहते हैं।</p>`;
+  <p style="text-align:center;margin-top:8px;font-size:11.5px;color:var(--mut)">🔒 किसी भी phone से login करो, आपका score साथ रहेगा।</p>`;
   openM();
   $('#f-sw').onclick=e=>{e.preventDefault();authBox(mode=='login'?'signup':'login',then)};
   $('#f-go').onclick=async()=>{
     const u=$('#f-user').value.trim().toLowerCase(),p=$('#f-pass').value,err=$('#f-err');
     if(!/^[a-z0-9_.]{3,20}$/.test(u))return err.textContent='Username 3-20 अक्षर (a-z, 0-9, _ .)';
-    if(p.length<4)return err.textContent='Password कम से कम 4 अक्षर';
-    const all=U(),h=await hash(u+':'+p);
-    if(mode=='signup'){const n=$('#f-name').value.trim();if(!n)return err.textContent='नाम लिखो';
-      if(all[u])return err.textContent='यह username पहले से है, दूसरा चुनो';
-      all[u]={id:u,name:n,h,exam:$('#f-exam').value,joined:Date.now(),att:[],topic:{},days:[]};saveU(all);
-    }else{if(!all[u]||all[u].h!==h)return err.textContent='Username या password गलत है'}
-    localStorage.setItem('bx_me',u);closeM();refreshUser();toast('Welcome, '+all[u].name+'! 🎉');if(then)then();
+    if(p.length<6)return err.textContent='Password कम से कम 6 अक्षर';
+    const btn=$('#f-go');btn.disabled=true;btn.textContent='रुको…';const fail=t=>{err.textContent=t;btn.disabled=false;btn.textContent=mode=='login'?'Login':'Account बनाओ'};
+    if(mode=='signup'){const n=$('#f-name').value.trim();if(!n)return fail('नाम लिखो');
+      const {data,error}=await sb.auth.signUp({email:mail(u),password:p});
+      if(error)return fail(/registered|exists/i.test(error.message)?'यह username पहले से है, दूसरा चुनो':'Error: '+error.message);
+      if(!data.session){const r=await sb.auth.signInWithPassword({email:mail(u),password:p});if(r.error)return fail('Error: '+r.error.message)}
+      const {error:e2}=await sb.from('profiles').insert({id:(await sb.auth.getUser()).data.user.id,username:u,name:n,exam:$('#f-exam').value});
+      if(e2)return fail('Error: '+e2.message);
+    }else{const {error}=await sb.auth.signInWithPassword({email:mail(u),password:p});if(error)return fail('Username या password गलत है')}
+    await loadMe();closeM();refreshUser();toast('Welcome, '+ME.name+'! 🎉');if(then)then();
   };
 }
-function logout(){localStorage.removeItem('bx_me');refreshUser();go('home');toast('Logout हो गया')}
+async function logout(){await sb.auth.signOut();ME=null;refreshUser();go('home');toast('Logout हो गया')}
 function refreshUser(){const m=me();$('#ubtn').textContent=m?('👤 '+m.name.split(' ')[0]):'Login';
   $('#cd-streak').textContent=(m?streak(m):0)+' 🔥';if(!$('#v-prof').classList.contains('hide'))renderProf()}
 $('#ubtn').onclick=()=>me()?go('prof'):authBox('login');
@@ -345,11 +355,12 @@ function pick(k){const q=cur.qs[cur.i];if(cur.ans[cur.i]!==undefined)return;cur.
   $('#exp').style.display='block';const n=$('#nx');n.classList.remove('hide');n.onclick=()=>{cur.i++;cur.i<cur.qs.length?showQ():finish()};
   if(navigator.vibrate)navigator.vibrate(ok?30:[60,40,60])}
 function finish(){const {qs,c,meta}=cur,n=qs.length,pct=Math.round(100*c/n);const m=me();
-  if(m){const all=U(),u=all[m.id];const key=meta.e+'|'+meta.t;const tp=u.topic[key]||{n:0,c:0,best:0,tries:0};
-    tp.n+=n;tp.c+=c;tp.best=Math.max(tp.best,pct);tp.tries++;u.topic[key]=tp;
-    u.att.unshift({t:meta.t,e:meta.e,c,n,d:Date.now()});u.att=u.att.slice(0,60);
-    const w=new Set(u.wrong||[]);qs.forEach((q,j)=>{if(q._i===undefined)return;cur.ans[j]==q.a?w.delete(q._i):w.add(q._i)});u.wrong=[...w];
-    const day=new Date().toISOString().slice(0,10);if(!u.days.includes(day))u.days.push(day);all[m.id]=u;saveU(all);refreshUser()}
+  if(m){const key=meta.e+'|'+meta.t;const tp=m.topic[key]||{n:0,c:0,best:0,tries:0};
+    tp.n+=n;tp.c+=c;tp.best=Math.max(tp.best,pct);tp.tries++;m.topic[key]=tp;m.att.unshift({t:meta.t,e:meta.e,c,n,d:Date.now()});
+    const w=new Set(m.wrong);qs.forEach((q,j)=>{if(q._i===undefined)return;cur.ans[j]==q.a?w.delete(q._i):w.add(q._i)});m.wrong=[...w].slice(-500);
+    const day=new Date().toISOString().slice(0,10);if(!m.days.includes(day))m.days.push(day);m.days=m.days.slice(-400);
+    sb.from('attempts').insert({exam:meta.e,topic:meta.t,correct:c,total:n}).then(({error})=>{if(error)toast('Score save नहीं हुआ, internet देखो')});
+    sb.from('profiles').update({wrong:m.wrong,days:m.days}).eq('id',m.uid).then(()=>{});refreshUser()}
   const col=pct>=80?'#06d6a0':pct>=50?'#ff9f1c':'#ff3d7f';
   const msg=pct>=80?'शानदार! Topper वाली तैयारी 🏆':pct>=50?'अच्छा है, थोड़ा और practice 💪':'कोई बात नहीं, दोबारा try करो 📖';
   $('#box').innerHTML=`<button class="x" onclick="closeM()">✕</button><div class="res">
@@ -377,12 +388,12 @@ function renderProf(){const m=me();const b=$('#profbox');
   ${tps.length?`<div class="topics">${tps.sort((a,b)=>b.n-a.n).map(x=>`<div class="tp"><div class="tx"><h4>${esc(x.t)}</h4><small>${EX[x.e]?.s} · ${x.c}/${x.n} सही · best ${x.best}% · ${x.tries} बार</small><div class="bar"><i style="width:${x.p}%"></i></div></div><b style="font-family:'Baloo 2';font-size:20px">${x.p}%</b></div>`).join('')}</div>`:'<div class="empty">अभी कोई test नहीं दिया। <a href="#" onclick="go(\'prac\');return false" style="color:var(--p1);font-weight:700">Practice शुरू करो →</a></div>'}
   ${m.att.length?`<h3 class="baloo" style="font-size:20px;margin:16px 0 10px">🕒 हाल के Tests</h3><div class="hist">${m.att.slice(0,10).map(a=>`<div><span>${esc(a.t)}</span><b>${a.c}/${a.n}</b></div>`).join('')}</div>`:''}`}
 /* ---------- boot ---------- */
-Promise.all([fetch('data.json').then(r=>r.json()),fetch('bank.json').then(r=>r.json())]).then(([d,b])=>{DATA=d;BANK=b;
+loadMe().then(()=>Promise.all([fetch('data.json').then(r=>r.json()),fetch('bank.json').then(r=>r.json())]).then(([d,b])=>{DATA=d;BANK=b;
   const pdfs=DATA.filter(i=>i.file).length,topics=new Set(BANK.map(q=>q.e+q.t)).size;
   $('#stats').innerHTML=[[pdfs,'Free PDF'],[BANK.length+'+','सवाल'],[topics,'Topics'],[DATA.filter(i=>i.kind=='quiz').length,'Reel Quiz']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
   $('#latest').innerHTML=DATA.slice(0,8).map(card).join('');renderTabs();renderLib();refreshUser();
   const left=Math.ceil((new Date('2026-11-22T00:00:00+05:30')-Date.now())/864e5);$('#cd-slet').textContent=left>0?left:'आज!';
-});
+}));
 </script>
 </body>
 </html>
