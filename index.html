@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bihar Exam 4U | BPSC, TRE 4.0, SLET Free Notes PDF + Topic-wise Quiz</title>
+<meta name="description" content="BPSC, BPSC TRE 4.0 Computer Science, Bihar SLET Library Science: free PDF notes, daily quiz, topic-wise practice और अपना score profile. Hindi + English.">
+<meta property="og:title" content="Bihar Exam 4U: Free Notes PDF + Topic-wise Quiz">
+<meta property="og:description" content="BPSC · TRE 4.0 CS · SLET: free PDF, 1200+ सवाल, अपना score profile">
+<meta property="og:image" content="img/logo.jpg">
+<meta name="theme-color" content="#6a11cb">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p1:#6a11cb;--p2:#2575fc;--pink:#ff3d7f;--orange:#ff9f1c;--green:#06d6a0;--yellow:#ffd23f;--ink:#1d1a39;--mut:#6b6a85;--bg:#f6f4ff;--card:#fff;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins','Baloo 2',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-tap-highlight-color:transparent}
+h1,h2,h3,.baloo{font-family:'Baloo 2','Poppins',sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid #ece8ff}
+.hd{display:flex;align-items:center;gap:10px;height:62px}
+.hd img{width:40px;height:40px;border-radius:50%;border:2px solid var(--p1)}
+.brand{font-weight:800;font-size:20px;font-family:'Baloo 2';background:linear-gradient(90deg,var(--p1),var(--pink));-webkit-background-clip:text;color:transparent}
+.hd .sp{flex:1}
+.nav{display:flex;gap:4px}
+.nav button{background:none;padding:8px 10px;border-radius:12px;font-weight:600;font-size:14px;color:var(--mut)}
+.nav button.on{background:#efeaff;color:var(--p1)}
+.ubtn{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;white-space:nowrap}
+@media(max-width:720px){.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -6px 20px rgba(60,40,140,.12);z-index:60}
+ .nav button{display:flex;flex-direction:column;align-items:center;font-size:11px;padding:4px 6px}.nav button i{font-style:normal;font-size:20px}body{padding-bottom:70px}.brand{font-size:17px}}
+@media(min-width:721px){.nav button i{display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#6a11cb 0%,#2575fc 50%,#ff3d7f 100%);background-size:200% 200%;animation:grad 12s ease infinite;border-radius:0 0 32px 32px}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero .wrap{position:relative;z-index:2;padding:36px 16px 40px}
+.hero h1{font-size:clamp(30px,7vw,52px);line-height:1.1;font-weight:800}
+.hero h1 span{color:var(--yellow)}
+.hero p{opacity:.95;margin:10px 0 18px;font-size:16px;max-width:560px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;font-weight:700;font-size:15px;transition:transform .15s}
+.btn:active{transform:scale(.96)}
+.btn.y{background:var(--yellow);color:#2a1d00;box-shadow:0 6px 0 #c99a00}
+.btn.w{background:#fff;color:var(--p1)}
+.btn.g{background:var(--green);color:#03392b}
+.btn.p{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff}
+.btn.o{background:#fff;color:var(--ink);border:2px solid #e2dcff}
+.float{position:absolute;font-size:34px;opacity:.25;animation:fl 7s ease-in-out infinite;z-index:1}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(12deg)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-26px;position:relative;z-index:3}
+.stat{background:#fff;border-radius:var(--r);padding:14px 8px;text-align:center;box-shadow:0 10px 30px rgba(80,50,180,.12)}
+.stat b{display:block;font-family:'Baloo 2';font-size:26px;line-height:1;background:linear-gradient(90deg,var(--p1),var(--pink));-webkit-background-clip:text;color:transparent}
+.stat span{font-size:12px;color:var(--mut);font-weight:600}
+@media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
+section{padding:28px 0}
+.st{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:14px}
+.st h2{font-size:26px;font-weight:800;line-height:1.1}
+.st small{color:var(--mut)}
+/* countdown */
+.cds{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.cd{border-radius:var(--r);padding:16px;color:#fff;position:relative;overflow:hidden}
+.cd h3{font-size:18px}.cd .n{font-family:'Baloo 2';font-size:40px;font-weight:800;line-height:1}
+.cd small{opacity:.9;font-size:12px}
+.c1{background:linear-gradient(135deg,#ff6a88,#ff99ac)}.c2{background:linear-gradient(135deg,#0bab64,#3bb78f)}.c3{background:linear-gradient(135deg,#f7971e,#ffd200);color:#3a2600}
+/* schedule */
+.sched{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.sc{min-width:150px;background:#fff;border-radius:16px;padding:12px;scroll-snap-align:start;border-top:5px solid var(--c);box-shadow:0 4px 14px rgba(80,50,180,.08)}
+.sc b{font-family:'Baloo 2';font-size:20px;color:var(--c)}.sc p{font-size:13px;font-weight:600}
+/* tabs & cards */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
+.tab{white-space:nowrap;padding:8px 14px;border-radius:999px;background:#fff;border:2px solid #e6e0ff;font-weight:600;font-size:14px;color:var(--mut)}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.search{width:100%;padding:13px 16px 13px 44px;border-radius:14px;border:2px solid #e6e0ff;font:inherit;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%236b6a85' stroke-width='2.5'%3E%3Ccircle cx='9' cy='9' r='6'/%3E%3Cpath d='m14 14 4 4'/%3E%3C/svg%3E") 14px center no-repeat;margin-bottom:12px;outline:none}
+.search:focus{border-color:var(--p1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}}
+.card{background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 6px 18px rgba(80,50,180,.10);display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card .th{aspect-ratio:4/5;background:#ddd center/cover no-repeat;position:relative}
+.badge{position:absolute;top:8px;left:8px;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;color:#fff}
+.bd2{left:auto;right:8px;background:rgba(0,0,0,.6)}
+.card .bd{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:15px;line-height:1.25;font-weight:700;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .meta{font-size:11.5px;color:var(--mut)}
+.card .acts{display:flex;gap:6px;margin-top:auto}
+.card .acts a,.card .acts button{flex:1;text-align:center;padding:8px 4px;border-radius:10px;font-size:12.5px;font-weight:700}
+.a1{background:#efeaff;color:var(--p1)}.a2{background:var(--p1);color:#fff}.a3{background:var(--green);color:#03392b}
+.k-cs{background:#2575fc}.k-slet{background:#0bab64}.k-history{background:#d35400}.k-gk{background:#8e44ad}.k-ca{background:#e91e63}.k-science{background:#16a085}
+.more{display:block;margin:16px auto 0}
+/* practice */
+.exams{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.ex{border-radius:18px;padding:14px;color:#fff;text-align:left;position:relative;overflow:hidden;min-height:96px}
+.ex b{font-family:'Baloo 2';font-size:19px;display:block;line-height:1.1}.ex span{font-size:12px;opacity:.9}
+.ex .em{position:absolute;right:8px;bottom:2px;font-size:38px;opacity:.5}
+.ex.on{outline:4px solid var(--yellow);outline-offset:2px}
+.topics{display:grid;gap:10px}
+.tp{background:#fff;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 12px rgba(80,50,180,.07)}
+.tp .tx{flex:1;min-width:0}.tp h4{font-size:15px;font-weight:700}.tp small{color:var(--mut);font-size:12px}
+.bar{height:7px;background:#eee;border-radius:9px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--p2));border-radius:9px}
+.tp button{padding:9px 14px;border-radius:12px;background:var(--p1);color:#fff;font-weight:700;font-size:13px;white-space:nowrap}
+/* modal */
+.mod{position:fixed;inset:0;background:rgba(20,10,50,.6);z-index:100;display:none;align-items:flex-end;justify-content:center}
+.mod.show{display:flex}
+.box{background:#fff;width:100%;max-width:640px;max-height:94vh;overflow:auto;border-radius:24px 24px 0 0;padding:18px;animation:up .25s ease}
+@media(min-width:720px){.mod{align-items:center}.box{border-radius:24px}}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.x{float:right;background:#f1eeff;width:34px;height:34px;border-radius:50%;font-size:18px}
+.qtop{display:flex;align-items:center;gap:10px;margin:4px 0 12px}
+.qtop .bar{flex:1;margin:0}
+.lang{background:#f1eeff;border-radius:999px;padding:3px}
+.lang button{background:none;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;color:var(--mut)}
+.lang button.on{background:var(--p1);color:#fff}
+.qt{font-size:17px;font-weight:600;white-space:pre-line;margin-bottom:12px}
+.qt .en{display:block;font-size:14px;color:#2575fc;font-weight:500;margin-top:6px}
+.opt{display:block;width:100%;text-align:left;background:#f7f5ff;border:2px solid #e6e0ff;border-radius:14px;padding:12px 14px;margin-bottom:8px;font-size:15px;font-weight:500}
+.opt .en{display:block;font-size:12.5px;color:#2575fc}
+.opt.ok{background:#d9fbe9;border-color:#06d6a0}.opt.no{background:#ffe1e8;border-color:#ff3d7f}
+.exp{background:#fff8e1;border-left:5px solid var(--orange);padding:10px 12px;border-radius:10px;font-size:14px;margin:6px 0 12px;display:none}
+.src{font-size:11px;color:var(--mut);margin-bottom:8px}
+.res{text-align:center;padding:10px 0}
+.ring{width:150px;height:150px;border-radius:50%;margin:10px auto;display:grid;place-items:center;font-family:'Baloo 2';font-size:40px;font-weight:800}
+.field{width:100%;padding:13px 14px;border-radius:12px;border:2px solid #e6e0ff;font:inherit;margin-bottom:10px;outline:none}.field:focus{border-color:var(--p1)}
+.err{color:#e91e63;font-size:13px;min-height:18px;margin-bottom:6px}
+/* profile */
+.pf{background:linear-gradient(135deg,var(--p1),var(--pink));color:#fff;border-radius:24px;padding:20px;display:flex;gap:14px;align-items:center}
+.av{width:64px;height:64px;border-radius:50%;background:var(--yellow);color:#3a2600;display:grid;place-items:center;font-family:'Baloo 2';font-size:30px;font-weight:800;flex-shrink:0}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+@media(max-width:520px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+.hist{background:#fff;border-radius:16px;padding:4px 14px}
+.hist div{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #f0edff;font-size:14px}
+.hist div:last-child{border:0}
+.empty{text-align:center;color:var(--mut);padding:24px;background:#fff;border-radius:16px}
+.follow{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);color:#fff;border-radius:24px;padding:22px;text-align:center}
+.follow h2{font-size:24px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 30px}
+.hide{display:none!important}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:200;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <img src="img/logo.jpg" alt="Bihar Exam 4U">
+  <div class="brand">Bihar Exam 4U</div>
+  <div class="sp"></div>
+  <nav class="nav" id="nav">
+    <button data-v="home" class="on"><i>🏠</i>Home</button>
+    <button data-v="lib"><i>📚</i>PDF Notes</button>
+    <button data-v="prac"><i>🎯</i>Practice</button>
+    <button data-v="prof"><i>👤</i>Profile</button>
+  </nav>
+  <button class="ubtn" id="ubtn">Login</button>
+</div></header>
+
+<!-- HOME -->
+<main id="v-home">
+  <div class="hero">
+    <span class="float" style="left:6%;top:18%">📘</span><span class="float" style="right:8%;top:12%;animation-delay:1s">🏆</span>
+    <span class="float" style="right:22%;bottom:14%;animation-delay:2s">✏️</span><span class="float" style="left:40%;bottom:8%;animation-delay:3s">🎯</span>
+    <div class="wrap">
+      <div class="chips"><span class="chip">BPSC</span><span class="chip">TRE 4.0 Computer Science</span><span class="chip">Bihar SLET</span><span class="chip">Current Affairs</span></div>
+      <h1>Bihar की हर परीक्षा,<br><span>एक ही जगह, Free!</span></h1>
+      <p>रोज़ के Notes PDF, topic-wise 1200+ सवाल (Hindi + English), और आपका अपना score profile। पढ़ो, practice करो, rank बढ़ाओ।</p>
+      <div class="cta">
+        <button class="btn y" onclick="go('prac')">🎯 Practice शुरू करो</button>
+        <button class="btn w" onclick="go('lib')">📥 Free PDF लो</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats" id="stats"></div>
+    <section>
+      <div class="st"><h2>⏳ Exam Countdown</h2></div>
+      <div class="cds">
+        <div class="cd c1"><h3>Bihar SLET 2026</h3><div class="n" id="cd-slet">–</div><small>दिन बाकी · संभावित तारीख 22 Nov 2026 (official notice से confirm करें)</small></div>
+        <div class="cd c2"><h3>BPSC TRE 4.0</h3><div class="n">जल्द</div><small>Exam date अभी घोषित नहीं · 33,320 पद</small></div>
+        <div class="cd c3"><h3>आपकी Daily Streak</h3><div class="n" id="cd-streak">0 🔥</div><small>रोज़ 1 quiz करो, streak बचाओ</small></div>
+      </div>
+    </section>
+    <section>
+      <div class="st"><h2>🗓️ रोज़ का Schedule</h2><small>Instagram पर</small></div>
+      <div class="sched">
+        <div class="sc" style="--c:#2575fc"><b>6:00 AM</b><p>TRE CS PDF</p></div>
+        <div class="sc" style="--c:#d35400"><b>7:00 AM</b><p>इतिहास Notes</p></div>
+        <div class="sc" style="--c:#6a11cb"><b>10:00 AM</b><p>TRE CS Carousel</p></div>
+        <div class="sc" style="--c:#0bab64"><b>1:00 PM</b><p>SLET Carousel</p></div>
+        <div class="sc" style="--c:#16a085"><b>5:00 PM</b><p>SLET PDF</p></div>
+        <div class="sc" style="--c:#8e44ad"><b>8:00 PM</b><p>BPSC Hard Quiz Reel</p></div>
+        <div class="sc" style="--c:#e91e63"><b>10:00 PM</b><p>Current Affairs Reel</p></div>
+      </div>
+    </section>
+    <section>
+      <div class="st"><h2>🆕 Latest Uploads</h2><button class="tab" onclick="go('lib')">सब देखो →</button></div>
+      <div class="grid" id="latest"></div>
+    </section>
+    <section>
+      <div class="follow">
+        <h2>📲 Instagram पर Follow करो</h2>
+        <p style="margin:6px 0 14px">रोज़ नए Reels, Notes और Quiz। Comment में "PDF" लिखो, DM में मिलेगी।</p>
+        <a class="btn w" href="https://www.instagram.com/bihar.exam4u/" target="_blank" rel="noopener">@bihar.exam4u Follow</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- LIBRARY -->
+<main id="v-lib" class="hide"><div class="wrap"><section>
+  <div class="st"><h2>📚 Free PDF + Notes</h2><small id="libcount"></small></div>
+  <input class="search" id="q" placeholder="Topic खोजो… जैसे Boolean, गुप्त काल, DDC">
+  <div class="tabs" id="ltabs"></div>
+  <div class="grid" id="lgrid"></div>
+  <button class="btn o more hide" id="lmore">और दिखाओ</button>
+</section></div></main>
+
+<!-- PRACTICE -->
+<main id="v-prac" class="hide"><div class="wrap"><section>
+  <div class="st"><h2>🎯 Topic-wise Practice</h2><small>जो topic पढ़ना है, सिर्फ़ उसी के सवाल</small></div>
+  <div class="exams" id="exams"></div>
+  <input class="search" id="tq" placeholder="Topic खोजो…">
+  <div class="topics" id="topics"></div>
+</section></div></main>
+
+<!-- PROFILE -->
+<main id="v-prof" class="hide"><div class="wrap"><section id="profbox"></section></div></main>
+
+<div class="wrap"><footer>© 2026 Bihar Exam 4U · BPSC · TRE 4.0 · SLET<br>Instagram: <a href="https://www.instagram.com/bihar.exam4u/" target="_blank" rel="noopener"><b>@bihar.exam4u</b></a></footer></div>
+
+<div class="mod" id="mod"><div class="box" id="box"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const EX={cs:{n:'TRE 4.0 Computer Science',s:'TRE CS',e:'💻',g:'linear-gradient(135deg,#2575fc,#6a11cb)'},
+slet:{n:'Bihar SLET (Library Sci.)',s:'SLET',e:'📖',g:'linear-gradient(135deg,#0bab64,#3bb78f)'},
+history:{n:'इतिहास (BPSC)',s:'इतिहास',e:'🏛️',g:'linear-gradient(135deg,#d35400,#f39c12)'},
+gk:{n:'GK + BPSC PYQ',s:'GK',e:'🧠',g:'linear-gradient(135deg,#8e44ad,#c86dd7)'},
+ca:{n:'Current Affairs',s:'Current Affairs',e:'📰',g:'linear-gradient(135deg,#e91e63,#ff6a88)'},
+science:{n:'विज्ञान / पर्यावरण',s:'विज्ञान',e:'🔬',g:'linear-gradient(135deg,#16a085,#48c9b0)'}};
+let DATA=[],BANK=[],cur=null,lang='both',libCat='all',libN=12,pracEx='cs';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
+/* ---------- accounts (saved in this browser) ---------- */
+const U=()=>JSON.parse(localStorage.getItem('bx_users')||'{}');
+const saveU=u=>localStorage.setItem('bx_users',JSON.stringify(u));
+const me=()=>{const id=localStorage.getItem('bx_me');return id?U()[id]:null};
+async function hash(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('bx4u:'+s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function authBox(mode='login',then){
+  $('#box').innerHTML=`<button class="x" onclick="closeM()">✕</button>
+  <h2 class="baloo" style="font-size:24px">${mode=='login'?'👋 Login करो':'✨ नया Account बनाओ'}</h2>
+  <p style="color:var(--mut);font-size:14px;margin:4px 0 14px">${mode=='login'?'अपना username और password डालो':'Score, streak और progress सब आपकी profile में save होगा'}</p>
+  ${mode=='signup'?'<input class="field" id="f-name" placeholder="पूरा नाम">':''}
+  <input class="field" id="f-user" placeholder="Username (जैसे rahul2026)" autocapitalize="none">
+  <input class="field" id="f-pass" type="password" placeholder="Password (कम से कम 4 अक्षर)">
+  ${mode=='signup'?'<select class="field" id="f-exam"><option value="cs">मेरी तैयारी: TRE 4.0 Computer Science</option><option value="slet">Bihar SLET</option><option value="history">BPSC (GS)</option><option value="ca">Current Affairs</option></select>':''}
+  <div class="err" id="f-err"></div>
+  <button class="btn p" style="width:100%;justify-content:center" id="f-go">${mode=='login'?'Login':'Account बनाओ'}</button>
+  <p style="text-align:center;margin-top:12px;font-size:14px">${mode=='login'?'नया हो? <a href="#" id="f-sw" style="color:var(--p1);font-weight:700">Account बनाओ</a>':'पहले से account है? <a href="#" id="f-sw" style="color:var(--p1);font-weight:700">Login</a>'}</p>
+  <p style="text-align:center;margin-top:8px;font-size:11.5px;color:var(--mut)">🔒 Account और score इसी phone/browser में सुरक्षित रहते हैं।</p>`;
+  openM();
+  $('#f-sw').onclick=e=>{e.preventDefault();authBox(mode=='login'?'signup':'login',then)};
+  $('#f-go').onclick=async()=>{
+    const u=$('#f-user').value.trim().toLowerCase(),p=$('#f-pass').value,err=$('#f-err');
+    if(!/^[a-z0-9_.]{3,20}$/.test(u))return err.textContent='Username 3-20 अक्षर (a-z, 0-9, _ .)';
+    if(p.length<4)return err.textContent='Password कम से कम 4 अक्षर';
+    const all=U(),h=await hash(u+':'+p);
+    if(mode=='signup'){const n=$('#f-name').value.trim();if(!n)return err.textContent='नाम लिखो';
+      if(all[u])return err.textContent='यह username पहले से है, दूसरा चुनो';
+      all[u]={id:u,name:n,h,exam:$('#f-exam').value,joined:Date.now(),att:[],topic:{},days:[]};saveU(all);
+    }else{if(!all[u]||all[u].h!==h)return err.textContent='Username या password गलत है'}
+    localStorage.setItem('bx_me',u);closeM();refreshUser();toast('Welcome, '+all[u].name+'! 🎉');if(then)then();
+  };
+}
+function logout(){localStorage.removeItem('bx_me');refreshUser();go('home');toast('Logout हो गया')}
+function refreshUser(){const m=me();$('#ubtn').textContent=m?('👤 '+m.name.split(' ')[0]):'Login';
+  $('#cd-streak').textContent=(m?streak(m):0)+' 🔥';if(!$('#v-prof').classList.contains('hide'))renderProf()}
+$('#ubtn').onclick=()=>me()?go('prof'):authBox('login');
+function streak(m){const ds=new Set(m.days||[]);let n=0,d=new Date();const k=x=>x.toISOString().slice(0,10);
+  if(!ds.has(k(d)))d.setDate(d.getDate()-1);while(ds.has(k(d))){n++;d.setDate(d.getDate()-1)}return n}
+/* ---------- nav ---------- */
+function go(v){['home','lib','prac','prof'].forEach(x=>$('#v-'+x).classList.toggle('hide',x!=v));
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));
+  if(v=='prof')renderProf();if(v=='prac')renderPrac();scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+function openM(){$('#mod').classList.add('show');document.body.style.overflow='hidden'}
+function closeM(){$('#mod').classList.remove('show');document.body.style.overflow=''}
+$('#mod').onclick=e=>{if(e.target.id=='mod')closeM()};
+/* ---------- cards ---------- */
+function card(it){const ex=EX[it.cat]||EX.gk;const k=it.kind=='pdf'?'📄 PDF':it.kind=='notes'?'🖼️ Notes':'🎬 Reel Quiz';
+  const d=new Date(it.date+'T00:00').toLocaleDateString('hi-IN',{day:'numeric',month:'short'});
+  let acts='';
+  if(it.file)acts+=`<a class="a1" href="${it.file}" target="_blank" rel="noopener">👀 देखो</a><a class="a2" href="${it.file}" download>⬇️ PDF</a>`;
+  if(it.kind=='quiz')acts+=`<button class="a3" onclick="startReel('${it.thumb}')">▶️ Quiz खेलो</button>`;
+  return `<div class="card"><div class="th" style="background-image:url('${it.thumb}')"><span class="badge k-${it.cat}">${ex.s}</span><span class="badge bd2">${k}</span></div>
+  <div class="bd"><h3>${it.day?'Day '+it.day+': ':''}${esc(it.title)}</h3><div class="meta">${d} · ${esc(it.sub||'')}${it.size?' · '+it.size+' MB':''}${it.pages?' · '+it.pages+' pages':''}${it.quiz?' · '+it.quiz.length+' सवाल':''}</div><div class="acts">${acts}</div></div></div>`}
+function renderLib(){const q=$('#q').value.trim().toLowerCase();
+  const L=DATA.filter(i=>(libCat=='all'||i.cat==libCat||(libCat=='pdf'&&i.kind=='pdf'))&&(!q||(i.title+' '+i.sub).toLowerCase().includes(q)));
+  $('#libcount').textContent=L.length+' items';$('#lgrid').innerHTML=L.slice(0,libN).map(card).join('')||'<div class="empty">कुछ नहीं मिला 🙁</div>';
+  $('#lmore').classList.toggle('hide',L.length<=libN)}
+$('#lmore').onclick=()=>{libN+=12;renderLib()};$('#q').oninput=()=>{libN=12;renderLib()};
+function renderTabs(){const cats=[['all','सब'],['pdf','📄 सिर्फ़ PDF'],...Object.keys(EX).map(k=>[k,EX[k].e+' '+EX[k].s])];
+  $('#ltabs').innerHTML=cats.map(([k,n])=>`<button class="tab ${k==libCat?'on':''}" data-k="${k}">${n}</button>`).join('');
+  $('#ltabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{libCat=b.dataset.k;libN=12;renderTabs();renderLib()})}
+/* ---------- practice ---------- */
+function topicsOf(e){const m={};BANK.forEach((q,i)=>{if(q.e==e){(m[q.t]=m[q.t]||[]).push(i)}});return m}
+function renderPrac(){
+  $('#exams').innerHTML=Object.keys(EX).map(k=>{const n=BANK.filter(q=>q.e==k).length;return `<button class="ex ${k==pracEx?'on':''}" style="background:${EX[k].g}" data-k="${k}"><b>${EX[k].n}</b><span>${n} सवाल</span><span class="em">${EX[k].e}</span></button>`}).join('');
+  $('#exams').querySelectorAll('button').forEach(b=>b.onclick=()=>{pracEx=b.dataset.k;renderPrac()});
+  const m=me(),T=topicsOf(pracEx),q=$('#tq').value.trim().toLowerCase();
+  const rows=Object.entries(T).filter(([t])=>!q||t.toLowerCase().includes(q)).sort((a,b)=>b[1].length-a[1].length);
+  $('#topics').innerHTML=`<div class="tp" style="background:#fff8e1"><div class="tx"><h4>🎲 Mixed Test: ${EX[pracEx].n}</h4><small>सभी topics से random 15 सवाल</small></div><button onclick="startTopic('${pracEx}','*')">Start</button></div>`+
+  rows.map(([t,ids])=>{const st=m&&m.topic[pracEx+'|'+t];const pct=st?Math.round(100*st.c/st.n):0;
+    return `<div class="tp"><div class="tx"><h4>${esc(t)}</h4><small>${ids.length} सवाल${st?` · आपका accuracy ${pct}% · best ${st.best}%`:' · अभी शुरू नहीं किया'}</small><div class="bar"><i style="width:${pct}%"></i></div></div><button data-t="${esc(t)}">Start</button></div>`}).join('');
+  $('#topics').querySelectorAll('button[data-t]').forEach(b=>b.onclick=()=>startTopic(pracEx,b.dataset.t))}
+$('#tq').oninput=renderPrac;
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
+function startTopic(e,t){
+  if(!me())return authBox('login',()=>startTopic(e,t));
+  let ids=BANK.map((q,i)=>i).filter(i=>BANK[i].e==e&&(t=='*'||BANK[i].t==t));
+  const m=me(),wrong=new Set(m.wrong||[]);
+  ids=shuffle(ids).sort((a,b)=>wrong.has(b)-wrong.has(a)); // पहले वो जो पिछली बार गलत हुए
+  const n=t=='*'?15:Math.min(10,ids.length);
+  runQuiz(shuffle(ids.slice(0,n)).map(i=>({...BANK[i],_i:i})),{e,t:t=='*'?'Mixed Test':t})}
+function startReel(th){const it=DATA.find(x=>x.thumb==th);if(!it)return;
+  runQuiz(it.quiz.map(q=>({q:q.q,qe:q.q_en,o:q.o,oe:q.o_en,a:q.a,x:q.exp,s:q.src})),{e:it.cat,t:it.title,reel:true})}
+/* ---------- quiz engine ---------- */
+function runQuiz(qs,meta){cur={qs,meta,i:0,c:0,ans:[]};openM();showQ()}
+function showQ(){const {qs,i}=cur,q=qs[i];const showHi=lang!='en',showEn=lang!='hi'&&q.qe;
+  $('#box').innerHTML=`<button class="x" onclick="closeM()">✕</button>
+  <div class="baloo" style="font-weight:700;color:var(--p1)">${esc(cur.meta.t)}</div>
+  <div class="qtop"><b>${i+1}/${qs.length}</b><div class="bar"><i style="width:${100*i/qs.length}%"></i></div>
+  <div class="lang">${['hi','both','en'].map(l=>`<button class="${lang==l?'on':''}" onclick="lang='${l}';showQ()">${l=='hi'?'हिंदी':l=='en'?'EN':'दोनों'}</button>`).join('')}</div></div>
+  ${q.s?`<div class="src">📌 ${esc(q.s)}</div>`:''}
+  <div class="qt">${showHi||!q.qe?esc(q.q):''}${showEn?`<span class="en">${esc(q.qe)}</span>`:''}</div>
+  ${q.o.map((o,k)=>`<button class="opt" data-k="${k}"><b>${'ABCD'[k]}.</b> ${showHi||!q.oe[k]?esc(o):''}${showEn&&q.oe[k]?`<span class="en">${esc(q.oe[k])}</span>`:''}</button>`).join('')}
+  <div class="exp" id="exp">💡 ${esc(q.x||('सही उत्तर: '+'ABCD'[q.a]))}</div>
+  <button class="btn p hide" id="nx" style="width:100%;justify-content:center">${i+1<qs.length?'अगला सवाल →':'Result देखो 🏆'}</button>`;
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(+b.dataset.k))}
+function pick(k){const q=cur.qs[cur.i];if(cur.ans[cur.i]!==undefined)return;cur.ans[cur.i]=k;const ok=k==q.a;if(ok)cur.c++;
+  document.querySelectorAll('.opt').forEach((b,j)=>{if(j==q.a)b.classList.add('ok');else if(j==k)b.classList.add('no')});
+  $('#exp').style.display='block';const n=$('#nx');n.classList.remove('hide');n.onclick=()=>{cur.i++;cur.i<cur.qs.length?showQ():finish()};
+  if(navigator.vibrate)navigator.vibrate(ok?30:[60,40,60])}
+function finish(){const {qs,c,meta}=cur,n=qs.length,pct=Math.round(100*c/n);const m=me();
+  if(m){const all=U(),u=all[m.id];const key=meta.e+'|'+meta.t;const tp=u.topic[key]||{n:0,c:0,best:0,tries:0};
+    tp.n+=n;tp.c+=c;tp.best=Math.max(tp.best,pct);tp.tries++;u.topic[key]=tp;
+    u.att.unshift({t:meta.t,e:meta.e,c,n,d:Date.now()});u.att=u.att.slice(0,60);
+    const w=new Set(u.wrong||[]);qs.forEach((q,j)=>{if(q._i===undefined)return;cur.ans[j]==q.a?w.delete(q._i):w.add(q._i)});u.wrong=[...w];
+    const day=new Date().toISOString().slice(0,10);if(!u.days.includes(day))u.days.push(day);all[m.id]=u;saveU(all);refreshUser()}
+  const col=pct>=80?'#06d6a0':pct>=50?'#ff9f1c':'#ff3d7f';
+  const msg=pct>=80?'शानदार! Topper वाली तैयारी 🏆':pct>=50?'अच्छा है, थोड़ा और practice 💪':'कोई बात नहीं, दोबारा try करो 📖';
+  $('#box').innerHTML=`<button class="x" onclick="closeM()">✕</button><div class="res">
+  <div class="baloo" style="font-weight:700;color:var(--p1)">${esc(meta.t)}</div>
+  <div class="ring" style="background:conic-gradient(${col} ${pct*3.6}deg,#eee 0)"><div style="background:#fff;width:118px;height:118px;border-radius:50%;display:grid;place-items:center">${c}/${n}</div></div>
+  <h2 class="baloo">${msg}</h2><p style="color:var(--mut)">Accuracy ${pct}%${m?' · Profile में save हो गया ✅':''}</p>
+  ${m?'':'<p style="margin-top:8px"><a href="#" onclick="authBox(\'signup\');return false" style="color:var(--p1);font-weight:700">Account बनाओ</a> ताकि score save हो</p>'}
+  <div class="cta" style="justify-content:center;margin-top:14px">
+   ${meta.reel?'':`<button class="btn p" onclick="startTopic('${meta.e}','${meta.t=='Mixed Test'?'*':esc(meta.t).replace(/'/g,"\\'")}')">🔁 नए सवाल</button>`}
+   <button class="btn o" onclick="review()">📝 Answers देखो</button>
+   <a class="btn g" target="_blank" href="https://wa.me/?text=${encodeURIComponent('मैंने Bihar Exam 4U पर "'+meta.t+'" quiz में '+c+'/'+n+' score किया! 🎯 आप भी try करो: '+location.href)}">📤 Share</a>
+  </div></div>`}
+function review(){$('#box').innerHTML=`<button class="x" onclick="closeM()">✕</button><h2 class="baloo">📝 Answer Review</h2>`+cur.qs.map((q,j)=>`<div style="padding:12px 0;border-bottom:1px solid #eee"><div style="font-weight:600;white-space:pre-line">${j+1}. ${esc(q.q)}</div>
+  <div style="color:#0a8f5a;font-weight:600">✔ ${esc(q.o[q.a])}</div>${cur.ans[j]!=q.a?`<div style="color:#e91e63">✘ आपका: ${esc(q.o[cur.ans[j]]??'—')}</div>`:''}<div style="font-size:13px;color:var(--mut)">💡 ${esc(q.x||'')}</div></div>`).join('')}
+/* ---------- profile ---------- */
+function renderProf(){const m=me();const b=$('#profbox');
+  if(!m){b.innerHTML=`<div class="empty"><div style="font-size:48px">👤</div><h2 class="baloo">अपनी Profile बनाओ</h2><p>Score, streak, topic-wise accuracy और कमज़ोर topics सब एक जगह।</p><div class="cta" style="justify-content:center;margin-top:12px"><button class="btn p" onclick="authBox('signup')">Account बनाओ</button><button class="btn o" onclick="authBox('login')">Login</button></div></div>`;return}
+  const tot=m.att.reduce((s,a)=>s+a.n,0),cor=m.att.reduce((s,a)=>s+a.c,0),acc=tot?Math.round(100*cor/tot):0;
+  const tps=Object.entries(m.topic).map(([k,v])=>({e:k.split('|')[0],t:k.split('|').slice(1).join('|'),...v,p:Math.round(100*v.c/v.n)}));
+  const weak=tps.filter(x=>x.n>=5).sort((a,b)=>a.p-b.p).slice(0,3);
+  b.innerHTML=`<div class="pf"><div class="av">${esc(m.name[0]).toUpperCase()}</div><div><h2 class="baloo" style="font-size:24px;line-height:1.1">${esc(m.name)}</h2><div style="opacity:.9;font-size:13px">@${esc(m.id)} · तैयारी: ${EX[m.exam]?.n||''}</div></div><div style="flex:1"></div><button class="btn w" style="padding:8px 12px;font-size:13px" onclick="logout()">Logout</button></div>
+  <div class="pgrid"><div class="stat"><b>${tot}</b><span>सवाल हल किए</span></div><div class="stat"><b>${acc}%</b><span>Accuracy</span></div><div class="stat"><b>${streak(m)}🔥</b><span>Day Streak</span></div><div class="stat"><b>${m.att.length}</b><span>Tests दिए</span></div></div>
+  ${weak.length?`<h3 class="baloo" style="font-size:20px;margin:10px 0">⚠️ कमज़ोर Topics (इन पर ध्यान दो)</h3><div class="topics">${weak.map(w=>`<div class="tp"><div class="tx"><h4>${esc(w.t)}</h4><small>${EX[w.e]?.s} · accuracy ${w.p}%</small><div class="bar"><i style="width:${w.p}%;background:linear-gradient(90deg,#ff3d7f,#ff9f1c)"></i></div></div><button onclick="startTopic('${w.e}','${esc(w.t).replace(/'/g,"\\'")}')">Practice</button></div>`).join('')}</div>`:''}
+  <h3 class="baloo" style="font-size:20px;margin:16px 0 10px">📊 Topic-wise Score</h3>
+  ${tps.length?`<div class="topics">${tps.sort((a,b)=>b.n-a.n).map(x=>`<div class="tp"><div class="tx"><h4>${esc(x.t)}</h4><small>${EX[x.e]?.s} · ${x.c}/${x.n} सही · best ${x.best}% · ${x.tries} बार</small><div class="bar"><i style="width:${x.p}%"></i></div></div><b style="font-family:'Baloo 2';font-size:20px">${x.p}%</b></div>`).join('')}</div>`:'<div class="empty">अभी कोई test नहीं दिया। <a href="#" onclick="go(\'prac\');return false" style="color:var(--p1);font-weight:700">Practice शुरू करो →</a></div>'}
+  ${m.att.length?`<h3 class="baloo" style="font-size:20px;margin:16px 0 10px">🕒 हाल के Tests</h3><div class="hist">${m.att.slice(0,10).map(a=>`<div><span>${esc(a.t)}</span><b>${a.c}/${a.n}</b></div>`).join('')}</div>`:''}`}
+/* ---------- boot ---------- */
+Promise.all([fetch('data.json').then(r=>r.json()),fetch('bank.json').then(r=>r.json())]).then(([d,b])=>{DATA=d;BANK=b;
+  const pdfs=DATA.filter(i=>i.file).length,topics=new Set(BANK.map(q=>q.e+q.t)).size;
+  $('#stats').innerHTML=[[pdfs,'Free PDF'],[BANK.length+'+','सवाल'],[topics,'Topics'],[DATA.filter(i=>i.kind=='quiz').length,'Reel Quiz']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+  $('#latest').innerHTML=DATA.slice(0,8).map(card).join('');renderTabs();renderLib();refreshUser();
+  const left=Math.ceil((new Date('2026-11-22T00:00:00+05:30')-Date.now())/864e5);$('#cd-slet').textContent=left>0?left:'आज!';
+});
+</script>
+</body>
+</html>
